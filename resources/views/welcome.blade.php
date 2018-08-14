@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel nada que se arregla paila
                 </div>
 
                 <div class="links">
