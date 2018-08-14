@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    beto Rojas
+                    Beto Rojas
                 </div>
 
                 <div class="links">
