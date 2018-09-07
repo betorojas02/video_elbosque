@@ -90,3 +90,11 @@ Route::get('/buscar/{search?}' ,[
         'as' => 'videoSearch',
         'uses' => 'VideoController@search'
 ]);
+
+
+//canal usuario
+
+Route::get('/canal/{slug}',array(
+        'as' => 'channel',
+        'uses' => 'UserController@channel'
+));

@@ -69,7 +69,7 @@
             alt="Generic placeholder image">
         <div class="media-body text-center text-md-left ml-md-3 ml-0">
             <h5 class="font-weight-bold mt-0">
-                <a class="text-default" href="">{{$comment->user->name." ".$comment->user->surname}} </a>{{\FormatTime::LongTimeFilter($comment->created_at)}}
+                <a class="text-default" href="{{route('channel',['slug'=>$video->user->slug])}}">{{$comment->user->name." ".$comment->user->surname}} </a>{{\FormatTime::LongTimeFilter($comment->created_at)}}
                 <a href="" class="pull-right text-default">
                     <i class="fa fa-reply"></i>
                 </a>

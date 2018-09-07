@@ -75,7 +75,8 @@ class VideoController extends Controller
     {
       
 
-        $video = Video::where('slug','=', $slug)->firstOrFail();Video::where('slug','=', $slug)->firstOrFail();
+        $video = Video::where('slug','=', $slug)->firstOrFail();
+        Video::where('slug','=', $slug)->firstOrFail();
         return view('video.detalle', array(
             'video' => $video
         ));
@@ -107,12 +108,9 @@ class VideoController extends Controller
     }
     public function edit($slug)
     {
-        $user = \Auth::user();
+        $user = \Auth::user(); \Auth::user();
         $video = Video::where('slug','=', $slug)->firstOrFail();
-        if ($user && $video->user_id == $user->id) {
-
-
-          
+        if ($user && $video->user_id == $user->id) {          
            
         } else {
             Toastr::info( 'Video no ha podido ser modificado correctamente');
@@ -180,6 +178,9 @@ class VideoController extends Controller
          
         if(is_null($search)){
              $search = \Request::get('search');
+             if(is_null($search)){
+                 return redirect()->route('home');
+             }
             return redirect()->route('videoSearch',array('search' =>$search));
         }
         $result = Video::where('title' , 'LIKE', '%'.$search.'%')->paginate(5);

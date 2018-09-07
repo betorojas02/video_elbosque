@@ -11,7 +11,7 @@
             <h2>{{$video->title}}</h2>
             <span class="header-line gradient-color-2"></span>
             <br>
-            <div class="col-md-12">
+            
                         <div class="embed-responsive embed-responsive-16by9 hoverable">
                                 <video id="video-player" src="{{ route('fileVideo', ['filename' => $video->video_path])}}" controls>
                                         Tu navegador no es compatible con HTML5
@@ -36,7 +36,7 @@
                             
                            
 
-                </div>
+                
             </div>   
         </div>
     </div>

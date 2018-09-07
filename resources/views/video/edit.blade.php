@@ -2,8 +2,8 @@
 @section('content')
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
+    <div class="row  justify-content-md-center">
+        <div class="col-md-10">
             <h1>Editar {{$video->title}}</h1>
             <form action="{{ route('videoUpdate',['video_id' => $video->id])}}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -16,13 +16,21 @@
                     </ul>
                 </div>
                 @endif
-                <div class="form-group">
+                {{--  <div class="form-group">
                     <label for="title">Titulo</label>
                     <input type="text" name="title" id="title" class="form-control" value="{{$video->title}}">
+                </div>  --}}
+                <div class="md-form ">
+                    <input type="text" name="title" id="title" class="form-control" value="{{$video->title}}">
+                    <label for="title">Titulo</label>
                 </div>
-                <div class="form-group">
+                {{--  <div class="form-group">
                     <label for="description">Descripcion</label>
                     <textarea name="description" id="description" class="form-control">{{$video->description}}</textarea>
+                </div>  --}}
+                <div class="md-form">
+                    <textarea   name="description" id="description"  class="form-control md-textarea" rows="3">{{$video->description}}</textarea>
+                    <label for="description">Descripcion</label>
                 </div>
                 <div class="form-group">
                     <label for="image">Miniatura</label>
@@ -48,7 +56,7 @@
 
 
                 <hr>
-                <button type="submit" class="btn btn-success">Subir Video</button>
+                <button type="submit" class="btn btn-info">Editar Video</button>
             </form>
 
 
