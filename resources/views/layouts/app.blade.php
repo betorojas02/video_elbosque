@@ -34,104 +34,99 @@
 <body>
   <div id="app">
 
-          {{--  <!--Navbar-->
-          <nav class="navbar navbar-expand-lg navbar-dark primary-color">
-                  <a class="navbar-brand" href="#">Navbar</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-                      aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                      <ul class="navbar-nav">
-                          <li class="nav-item active">
-                              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#">Features</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#">Pricing</a>
-                          </li>
-                          <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                  aria-expanded="false">
-                              Dropdown link
-                              </a>
-                              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                  <a class="dropdown-item" href="#">Action</a>
-                                  <a class="dropdown-item" href="#">Another action</a>
-                                  <a class="dropdown-item" href="#">Something else here</a>
-                              </div>
-                          </li>
-                      </ul>
-                  </div>
-              </nav>
-          <!--/.Navbar-->  --}}
-      <nav class="navbar navbar-expand-lg navbar-light  " >
-         <div class="container">
-             
-   
-              <a class="navbar-brand" href="{{ url('/') }}">
-                 Videos El Bosque
-              </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+    <header>
+        
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar success-color">
+            <div class="container">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <strong> Videos El Bosque</strong>
+                    </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7"
+                aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
-              </button>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
 
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav mr-auto">
+                                <li><a class="nav-link" href="{{ url('/home')}}">Inicio</a></li>
+                              </ul>
+
+
+                              <form class="form-inline" role="search" action="{{url('/buscar')}}">
+                                <div class="md-form my-0">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Que quieres ver?" name="search">
+                                    <button class="btn btn-outline-primary waves-effect  my-2 my-sm-0" type="submit">Search</button>
+                                </div>
+                            </form>
                   <ul class="navbar-nav mr-auto">
-                      <li><a class="nav-link" href="{{ url('/home')}}">Inicio</a></li>
-                  </ul>
-          
-                          <form class="form-inline" role="search" action="{{url('/buscar')}}">
-                              <input class="form-control mr-sm-2" type="search" placeholder="Que quieres ver?" name="search">
-                              <button class="btn btn-outline-success  my-2 my-sm-0" type="submit">Search</button>
-                          </form>
-           
-                  <!-- Right Side Of Navbar -->
-                  <ul class="navbar-nav ml-auto">
-                      <!-- Authentication Links -->
-                      @guest
+                        
+                        <!-- Authentication Links -->
+                        @guest
                           <li class="nav-item">
                               <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar Sesion') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                           </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
-                          </li>
-                      @else
-                      <li>
-                          <a  class="nav-link" href="{{ url('/crear-video')}}">Subir video</a>
-                      </li>
-                          <li class="nav-item dropdown">
-                              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                  {{ Auth::user()->name }} <span class="caret"></span>
+                          @else
+                          <li>
+                              <a  class="nav-link" href="{{ url('/crear-video')}}">Subir video</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
                               </a>
-
-                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                              
+                              <div class="dropdown-menu dropdown-menu-right dropdown-success" aria-labelledby="navbarDropdown">
                                   <a class="dropdown-item" href="{{ route('logout') }}"
-                                     onclick="event.preventDefault();
-                                                   document.getElementById('logout-form').submit();">
-                                      {{ __('Cerrar Sesion') }}
-                                  </a>
-
-                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                      @csrf
-                                  </form>
+                                  onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                                  {{ __('Cerrar Sesion') }}
+                                </a>
+                                
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                               </div>
                           </li>
-                      @endguest
-                  </ul>
-              </div>
-          </div>
-      </nav>
+                          @endguest
+                    
 
+                      
+                    
+                    </ul>
+        
+                </div>
+            </div>
+        </nav>
+        
+
+        <section>
+                <div class="">
+                    <img src="{{ asset('img/bos.jpg') }}" style="height:; width: 100%">
+                </div>
+                </div>
+            </section>
+    </header>
+        
       <main class="py-4">
-          @yield('content')
-          
 
+            <div class="container-fluid mb-5">
+
+                    <!--Grid row-->
+                    <div class="row" style="margin-top: -400px;">
+                            <div class="col-md-12">
+                            <div class="card hoverable pb-5 mx-md-3">
+                                    <div class="card-body">
+          @yield('content')
+        </div>
+    </div>
+</div>
+</div>
+</div>
       </main>
-  </div>
+    </div>
 
 
   <!-- Scripts -->
@@ -141,6 +136,8 @@
 
   <!-- MDB core JavaScript -->
   <script  src="{{ asset('js/mdb.min.js') }}"></script>
+
+  <script  src="{{ asset('js/jasny-bootstrap.min.js') }}"></script>
   {!! toastr()->render() !!}
      
 </body>

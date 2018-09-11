@@ -42,15 +42,39 @@
                   <label for="description">Descripcion</label>
                   <textarea name="description" id="description" class="form-control"  >{{old('description')}}</textarea>
                 </div>  --}}
+
+                <div class="container">
+                    <div class="row">
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 200px;"></div>
+                            <div>
+                              <span class="btn btn-default btn-file"><span class="fileinput-new">Seleccionar Imagen </span><span class="fileinput-exists">Change</span><input type="file" name="image" id="image"></span>
+                              <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+               
+               
+
+{{--  
                 <div class="form-group">
                     <label for="image">Miniatura</label>
                    <input type="file" name="image" id="image" class="form-control">
-                  </div>
-                <div class="form-group">    
+                  </div>  --}}
+                {{--  <div class="form-group">    
                     <label for="video">Archivo del video</label>
                    <input type="file" name="video" id="video" class="form-control">
-                  </div>  
+                  </div>    --}}
                  
+
+                  <div class="fileinput fileinput-new" data-provides="fileinput">
+                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 200px;"></div>
+                    <div>
+                      <span class="btn btn-default btn-file"><span class="fileinput-new">Seleccionar Video </span><span class="fileinput-exists">Change</span><input type="file"  name="video" id="video" ></span>
+                      <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                    </div>
+                  </div>
 
                   
 
