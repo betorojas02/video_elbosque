@@ -12,7 +12,8 @@
     <div class="row  justify-content-md-center">
         <div class="col-md-10">
                 <h1>Subir Video</h1>
-            <form action="{{ url('/guardar-video')}}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('/guardar-video')}}" method="post" enctype="multipart/form-data" class="dropzone"
+            id="my-awesome-dropzone">
                 @csrf
 
                 @if ($errors->any())

@@ -49,7 +49,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
 
                         <ul class="navbar-nav mr-auto">
-                                <li><a class="nav-link" href="{{ url('/home')}}">Inicio</a></li>
+                                <li  class="nav-item"><a class="nav-link" href="{{ url('/home')}}">Inicio</a></li>
                               </ul>
 
 
@@ -59,7 +59,7 @@
                                     <button class="btn btn-outline-primary waves-effect  my-2 my-sm-0" type="submit">Search</button>
                                 </div>
                             </form>
-                  <ul class="navbar-nav mr-auto">
+                  <ul class="navbar-nav ml-auto">
                         
                         <!-- Authentication Links -->
                         @guest
@@ -70,7 +70,7 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                           </li>
                           @else
-                          <li>
+                          <li  class="nav-item">
                               <a  class="nav-link" href="{{ url('/crear-video')}}">Subir video</a>
                             </li>
                             <li class="nav-item dropdown">
@@ -91,10 +91,6 @@
                               </div>
                           </li>
                           @endguest
-                    
-
-                      
-                    
                     </ul>
         
                 </div>
@@ -132,6 +128,8 @@
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" ></script>
   <script  src="{{ asset('js/popper.min.js') }}"></script>
+
+  <script  src="{{ asset('js/dropzone.js') }}"></script>
   <!-- Bootstrap core JavaScript -->
 
   <!-- MDB core JavaScript -->

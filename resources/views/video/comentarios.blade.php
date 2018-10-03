@@ -66,7 +66,7 @@
 
     <div class="media d-block d-md-flex mt-4">
         <img class="card-img-64 rounded-circle z-depth-1 d-flex mx-auto mb-3" src="https://mdbootstrap.com/img/Photos/Avatars/img (20).jpg"
-            alt="Generic placeholder image">
+            alt="Generic placeholder image" width="100" height="100">
         <div class="media-body text-center text-md-left ml-md-3 ml-0">
             <h5 class="font-weight-bold mt-0">
                 <a class="text-default" href="{{route('channel',['slug'=>$video->user->slug])}}">{{$comment->user->name." ".$comment->user->surname}} </a>{{\FormatTime::LongTimeFilter($comment->created_at)}}
