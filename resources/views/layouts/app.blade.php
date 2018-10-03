@@ -84,6 +84,8 @@
                                   document.getElementById('logout-form').submit();">
                                   {{ __('Cerrar Sesion') }}
                                 </a>
+                                <a class="nav-link" href="{{ route('perfil.blade.php') }}">{{ __('Perfil') }}</a>
+                                </a>
                                 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
@@ -122,7 +124,23 @@
 </div>
 </div>
       </main>
+<<<<<<< Updated upstream
     </div>
+=======
+
+      <!-- Footer -->
+<footer class="page-footer font-small blue">
+
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">© 2018 Copyright:
+  <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
+</div>
+<!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+  </div>
+>>>>>>> Stashed changes
 
 
   <!-- Scripts -->
