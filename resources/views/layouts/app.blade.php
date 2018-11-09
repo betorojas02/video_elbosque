@@ -49,7 +49,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
 
                         <ul class="navbar-nav mr-auto">
-                                <li  class="nav-item"><a class="nav-link" href="{{ url('/home')}}">Inicio</a></li>
+                                <li><a class="nav-link" href="{{ url('/home')}}">Inicio</a></li>
                               </ul>
 
 
@@ -59,7 +59,7 @@
                                     <button class="btn btn-outline-primary waves-effect  my-2 my-sm-0" type="submit">Search</button>
                                 </div>
                             </form>
-                  <ul class="navbar-nav ml-auto">
+                  <ul class="navbar-nav mr-auto">
                         
                         <!-- Authentication Links -->
                         @guest
@@ -70,7 +70,7 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                           </li>
                           @else
-                          <li  class="nav-item">
+                          <li>
                               <a  class="nav-link" href="{{ url('/crear-video')}}">Subir video</a>
                             </li>
                             <li class="nav-item dropdown">
@@ -84,8 +84,7 @@
                                   document.getElementById('logout-form').submit();">
                                   {{ __('Cerrar Sesion') }}
                                 </a>
-                                <a class="nav-link" href="{{ route('perfil',['slug'=> Auth::user()->slug] )}}">{{ __('Perfil') }}</a>
-                                </a>
+                                <a class="nav-link" href="{{ url('/home')}}">Perfil</a>
                                 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
@@ -93,6 +92,10 @@
                               </div>
                           </li>
                           @endguest
+                    
+
+                      
+                    
                     </ul>
         
                 </div>
@@ -124,30 +127,56 @@
 </div>
 </div>
       </main>
-<<<<<<< Updated upstream
-    </div>
-=======
 
-      <!-- Footer -->
-<footer class="page-footer font-small blue">
 
-<!-- Copyright -->
-<div class="footer-copyright text-center py-3">© 2018 Copyright:
-  <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
-</div>
-<!-- Copyright -->
-
-</footer>
 <!-- Footer -->
-  </div>
->>>>>>> Stashed changes
+<footer class="page-footer font-small black">
 
+    <!-- Footer Elements -->
+    <div class="container">
+
+      <!-- Grid row-->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-12 py-5">
+          <div class="mb-5 flex-center">
+
+            <!-- Facebook -->
+            <a class="fb-ic">
+             <a href = "https://www.facebook.com/universidadelbosque/?ref=br_rs"> <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x" > </i></a>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic">
+            <a href = "https://twitter.com/search?q=Universidad%20El%20Bosque&src=typd">  <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+           
+            <!--Instagram-->
+            <a class="ins-ic">
+            <a href = "https://www.instagram.com/uelbosque/?hl=en">  <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+           
+          </div>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row-->
+
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">Videos El Bosque
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" ></script>
   <script  src="{{ asset('js/popper.min.js') }}"></script>
-
-  <script  src="{{ asset('js/dropzone.js') }}"></script>
   <!-- Bootstrap core JavaScript -->
 
   <!-- MDB core JavaScript -->
