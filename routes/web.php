@@ -98,3 +98,9 @@ Route::get('/canal/{slug}',array(
         'as' => 'channel',
         'uses' => 'UserController@channel'
 ));
+
+
+Route::get('/canal/{slug}',array(
+    'as' => 'perfil',
+    'uses' => 'UserController@perfil'
+));

@@ -54,7 +54,7 @@ class VideoController extends Controller
             $video->video_path = $video_path;
         }
         $video->save();
-        Toastr::success('El Video Se Ha Subido Correctamente');
+        Toastr::success('El video se ha subido correctamente');
       
       
 

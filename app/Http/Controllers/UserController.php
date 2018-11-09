@@ -31,4 +31,17 @@ class UserController extends Controller
             "videos"=> $video
         ));
     }
+
+    public function Perfil ($slug)
+    {
+      //  $user = \Auth::User();
+
+        $user = User::where('slug','=', $slug)->first();
+        $video = Video::Where('user_id','=',$user->id)->paginate(5);
+        return view ('user.perfil', array( 'user' => $user,  "videos"=> $video));
+
+
+    }
+
 }
+
