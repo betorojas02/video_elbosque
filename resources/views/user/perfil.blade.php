@@ -7,7 +7,7 @@
 
 <div class="row">
 <div class="col-md-4"> 
-<i class ="fa fa-edit"> </i>
+
 
 <a href=""> <i class ="fa fa-edit"> </i> </a>
 
