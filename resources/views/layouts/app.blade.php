@@ -84,7 +84,7 @@
                                   document.getElementById('logout-form').submit();">
                                   {{ __('Cerrar Sesion') }}
                                 </a>
-                                <a class="nav-link" href="{{ url('/home')}}">Perfil</a>
+                                <a class="nav-link" href="{{ route ('perfil',['slug'=> Auth::user()->slug ])}}">{{__('Perfil')}}</a>
                                 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
