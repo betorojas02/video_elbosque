@@ -8,9 +8,8 @@
 <div class="row">
 <div class="col-md-4"> 
 
-<a href=""> <i class ="fa fa-edit"> </i> </a>
 
-<a href=""> <i class ="fa fa-edit"> </i> </a>
+<a href="{{ route ('editarPerfil',['slug'=> Auth::user()->slug ])}}">{{__('Editar perfil')}} <i class ="fa fa-edit"> </i> </a>
 
 
 <h4> {{$user->name}} </h4>

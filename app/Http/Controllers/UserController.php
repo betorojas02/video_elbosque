@@ -43,5 +43,10 @@ class UserController extends Controller
 
     }
 
+
+    public function editarPerfil($slug)
+    {
+        return view ('user.editarPerfil');
+    }
 }
 

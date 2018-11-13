@@ -104,3 +104,10 @@ Route::get('/canal/{slug}',array(
     'as' => 'perfil',
     'uses' => 'UserController@perfil'
 ));
+
+//editar perfil 
+
+Route::get('/editarPerfil/{slug}', array(
+    'as' => 'editarPerfil',
+    'uses' => 'UserController@editarPerfil'
+));
