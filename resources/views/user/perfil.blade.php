@@ -8,6 +8,7 @@
 <div class="row">
 <div class="col-md-4"> 
 
+<a href=""> <i class ="fa fa-edit"> </i> </a>
 
 <a href=""> <i class ="fa fa-edit"> </i> </a>
 
