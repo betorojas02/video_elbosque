@@ -167,9 +167,9 @@ class VideoController extends Controller
 
         $video->update();
 
-   
+        return redirect()->route('/canal/{slug}');
         Toastr::info( 'El video se ha actualizado correctamente');
-        return redirect()->route('home');
+       
     
     }
 

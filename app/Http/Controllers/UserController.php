@@ -46,7 +46,43 @@ class UserController extends Controller
 
     public function editarPerfil($slug)
     {
-        return view ('user.editarPerfil');
+        $user = \Auth::user(); \Auth::user();
+       
+        return view('user.editarPerfil');
     }
-}
 
+
+   
+  
+
+    public function updatePerfil($slug, Request $request)
+    {
+        //Validar fomulario
+        $validatedData = $this->validate($request, [
+            'name' => 'required|min:5',
+            'email' => 'required',
+            'password' => 'required|min:5',
+        ]);
+
+        $user = \Auth::user();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        
+        $image = $request->file('image');
+        if ($image) {
+            // Update image
+            $image_path = time() . $image->getClientOriginalName();
+            \Storage::disk('images')->put($image_path, \File::get($image));
+
+            $user->image = $image_path;
+        }
+        $user->update();
+        Toastr::info( 'Su perfil se ha actualizado correctamente');
+
+        return redirect()->route('../../canal/slug');
+       
+    
+    }
+
+}

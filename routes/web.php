@@ -107,7 +107,13 @@ Route::get('/canal/{slug}',array(
 
 //editar perfil 
 
-Route::get('/editarPerfil/{slug}', array(
+Route::get('/editar-Perfil/{slug}', array(
     'as' => 'editarPerfil',
     'uses' => 'UserController@editarPerfil'
+));
+
+Route::post('/update-perfil/{slug}', array(
+    'as' => 'perfilUpdate',
+    'middleware' => 'auth',
+    'uses' => 'UserController@updatePerfil'
 ));

@@ -7,8 +7,6 @@
 
 <div class="row">
 <div class="col-md-4"> 
-
-
 <a href="{{ route ('editarPerfil',['slug'=> Auth::user()->slug ])}}">{{__('Editar perfil')}} <i class ="fa fa-edit"> </i> </a>
 
 
@@ -17,9 +15,7 @@
 {{$user->surname}} 
 
 {{$user->email}}
-
-
-
+{{$user->image}}
 </div>
 
 <div class="col-md-8"> 
