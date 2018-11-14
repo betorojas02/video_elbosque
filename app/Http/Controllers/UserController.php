@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -19,16 +19,17 @@ class UserController extends Controller
 {
     //
     public function channel($slug){
+        dd($video);   
         $user = User::where('slug','=', $slug)->first();
         if(!is_object($user)){
             return redirect()->route('home');
         }
 
         $video = Video::Where('user_id','=',$user->id)->paginate(5);
-             // dd($video);   
+              
         return view('user.channel',array(
             'user' => $user,
-            "videos"=> $video
+            'videos'=> $video
         ));
     }
 
@@ -38,7 +39,7 @@ class UserController extends Controller
 
         $user = User::where('slug','=', $slug)->first();
         $video = Video::Where('user_id','=',$user->id)->paginate(5);
-        return view ('user.perfil', array( 'user' => $user,  "videos"=> $video));
+        return view ('user.perfil', array( 'user' => $user,  'videos'=> $video));
 
 
     }
@@ -67,7 +68,7 @@ class UserController extends Controller
         $user = \Auth::user();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = $request->input('password');
+        $user->password = hash::make($request->input('password'));
         
         $image = $request->file('image');
         if ($image) {

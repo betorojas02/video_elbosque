@@ -47,8 +47,8 @@
                     <label for="image">Foto de perfil</label>
                     @if(Storage::disk('images')->has(Auth::user()->image))
                     <div class="col-md-4">
-                        <div class="user-image-mask">
-                            <img src="{{url('/mini/'.Auth::user()->image)}}" class="img-fluid img-thumbnail ">
+                        <div class="user-image-mask" >
+                            <img src="{{url('/mini/'.Auth::user()->image)}}" class="img-fluid img-thumbnail " >
                         </div>
                     </div>
                     @endif
