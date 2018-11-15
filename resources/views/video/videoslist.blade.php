@@ -22,8 +22,7 @@
 
             <div class="col-lg-7">
                 <!-- Category -->
-                {{-- <a href="#!" class="green-text"><h6 class="font-weight-bold mb-3"><i class="fa fa-cutlery pr-2"></i>Food</h6></a>
-                --}}
+              
                 <!-- Post title -->
                 <h4 class="font-weight-bold mb-3"><strong><a class="video-title" href="{{ route('detalleVideo',['slug' => $video->slug])}}">{{$video->title}}</a></strong></h4>
 
@@ -31,7 +30,7 @@
                 <!-- Excerpt -->
                 <p>{{$video->description}}</p>
                 <!-- Post data -->
-                <p>Por : <a href="{{route('channel',['slug'=>$video->user->slug])}}">{{$video->user->name." ". $video->user->surname}}</strong></a></p>
+                <p>Por : <a href="{{route('channel',['slug'=>$video->user->slug])}}">{{$video->user->name." ". $video->user->surname}}</a></p>
                 <!-- Read more button -->
 
 
