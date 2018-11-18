@@ -43,7 +43,7 @@ Route::get('/mini/{filename}', array(
 ));
 
 
-Route::get('/video/{slug}', array(
+Route::get('/video/{id}', array(
     'as' => 'detalleVideo',
     'uses' => 'VideoController@getVideoPage'
 ));
@@ -100,7 +100,7 @@ Route::get('/canal/{slug}',array(
 ));
 
 
-Route::get('/canal/{slug}',array(
+Route::get('/canal-u/{slug}',array(
     'as' => 'perfil',
     'uses' => 'UserController@perfil'
 ));
@@ -117,3 +117,8 @@ Route::post('/update-perfil/{slug}', array(
     'middleware' => 'auth',
     'uses' => 'UserController@updatePerfil'
 ));
+
+//LIKES
+
+
+Route::get('/like/{id}','VideoController@like');

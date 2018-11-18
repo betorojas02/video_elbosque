@@ -37,7 +37,7 @@
 
                 <!--configuracion de botones -->
                 <div class="col-md-8">
-                    <a href="{{ route('detalleVideo',['slug' => $video->slug])}}" class="btn btn-success btn-md">Ver</a>
+                    <a href="{{ route('detalleVideo',['id' => $video->id])}}" class="btn btn-success btn-md">Ver</a>
                     @if (Auth::check() && Auth::user()->id == $video->user->id)
 
                     <a href="{{ route('videoEdit',['slug' => $video->slug])}}" class="btn btn-warning btn-md">Editar</a>

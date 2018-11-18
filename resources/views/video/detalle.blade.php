@@ -22,15 +22,13 @@
 
                                 <br>
                                 <!-- description-->
-                                <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+                           
 
+                              
+                                 <a href='{{ url("/like/{$video->id}")}}' type="button" class="btn btn-default">like <i class="fa fa-heart"> </i></a>
+                                 <div class="btn btn-default" > {{$contador}}</div>
 
-                                 <button id="click" type="button" class="btn btn-default">LIKE <i class="fa fa-heart"> </i></button>
-                                 <div id="output" class="btn btn-default" > 0</div>
-
-                                 
-
-                                 
+                
                               <div class="card text-white bg-success mb-3" >
                                     <div class="card-header">Subido por <strong>{{$video->user->name. " " . $video->user->surname}}</strong> {{\FormatTime::LongTimeFilter($video->created_at)}}</div>
                                     <div class="card-body">
@@ -52,22 +50,5 @@
     </div>
 
      
-     <script>
-$(function() {
-  var count = 0, countRate = 0, output = $('#output');
-
-  setInterval(function(){ output.html(count) }, 1); // update continually
-
-  $('#click').click(function(){ count += 1 });
-  $('#autoClick').click(function(){ countRate += 1 });
-});
-
- Route::post('like', function(){
-if(Request::ajax()){
-
-  $userid= Input::get('user_id');
-  $videoid = Input::get('video_id');
-  $contador= Input::get($contador1);
-  });
-</script>
+    
 @endsection

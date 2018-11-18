@@ -19,7 +19,7 @@ class UserController extends Controller
 {
     //
     public function channel($slug){
-        dd($video);   
+       // dd($video);   
         $user = User::where('slug','=', $slug)->first();
         if(!is_object($user)){
             return redirect()->route('home');

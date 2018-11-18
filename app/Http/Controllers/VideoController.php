@@ -12,6 +12,7 @@ use TJGazel\Toastr\Facades\Toastr;
 use Illuminate\Support\Str as Str;
 use App\Video;
 use App\Comment;
+use App\Likes;
 
 
 class VideoController extends Controller
@@ -71,14 +72,17 @@ class VideoController extends Controller
         return new Response($file, 200);
     }
 
-    public function getVideoPage($slug)
+    public function getVideoPage($video_id)
     {
       
-
-        $video = Video::where('slug','=', $slug)->firstOrFail();
-        Video::where('slug','=', $slug)->firstOrFail();
-        return view('video.detalle', array(
-            'video' => $video
+        $video = Video::where( 'id','=',$video_id)->firstOrFail();
+        $likeVideo = Video::find($video_id);
+        $contador = Likes::where(['video_id' => $likeVideo->id])->count();
+        // dd($likeVideo);
+    
+       return view('video.detalle', array(
+            'video' => $video,
+            'contador' => $contador
         ));
     }
     public function getVideo($filename)
@@ -189,5 +193,32 @@ class VideoController extends Controller
             'videos' => $result,
             'search' => $search
         ));
+    }
+
+    public function view($video_id){
+        $videos = Video::where('id', '=', $video_id)->get();
+        $likeVideo = Video::find($video_id);
+        $contador = Like::where(['video_id' -> $likeVideo->id])->count();
+        $categories = Category::all();
+        return view('videos.view', ['videos' ->$videos, 'categories' ->$categories,'contador' =>$contador]);
+
+    }
+
+    public function like($id){
+        $loggedin_user =\Auth::user();
+        $like_user = Likes::where(['user_id' => $loggedin_user, 'video_id' => $id])->first();
+        if(empty($like_user->user_id)){
+           $user_id = \Auth::user();
+           $video_id = $id;
+           $like= new Likes();
+           $like->user_id = $user_id->id;
+           $like->video_id = $video_id;
+           $like->save();
+           return redirect("/video/{$id}");
+
+        }
+        else {
+            return redirect("/video/{$id}");
+        }
     }
 }
