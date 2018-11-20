@@ -110,10 +110,10 @@ class VideoController extends Controller
         }
         return redirect()->route('home');
     }
-    public function edit($slug)
+    public function edit($video_id)
     {
         $user = \Auth::user(); \Auth::user();
-        $video = Video::where('slug','=', $slug)->firstOrFail();
+        $video = Video::where('id','=', $video_id)->firstOrFail();
         if ($user && $video->user_id == $user->id) {          
            
         } else {

@@ -40,7 +40,7 @@
                     <a href="{{ route('detalleVideo',['id' => $video->id])}}" class="btn btn-success btn-md">Ver</a>
                     @if (Auth::check() && Auth::user()->id == $video->user->id)
 
-                    <a href="{{ route('videoEdit',['slug' => $video->slug])}}" class="btn btn-warning btn-md">Editar</a>
+                    <a href="{{ route('videoEdit',['id' => $video->id])}}" class="btn btn-warning btn-md">Editar</a>
 
                     <!-- Botón en HTML (lanza el modal en Bootstrap) -->
                     <a href="#video{{$video->id}}" role="button" class="btn btn-danger btn-md" data-toggle="modal">Eliminar

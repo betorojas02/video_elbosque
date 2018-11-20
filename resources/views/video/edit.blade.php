@@ -5,7 +5,7 @@
     <div class="row  justify-content-md-center">
         <div class="col-md-10">
             <h1>Editar {{$video->title}}</h1>
-            <form action="{{ route('videoUpdate', method="post" enctype="multipart/form-data">
+            <form action="{{ route('videoUpdate',['video_id' => $video->id])}}" method="post" enctype="multipart/form-data">
                 @csrf
                  @if ($errors->any())
                 <div class="alert alert-danger">
