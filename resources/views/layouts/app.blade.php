@@ -79,12 +79,13 @@
                               </a>
                               
                               <div class="dropdown-menu dropdown-menu-right dropdown-success" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="{{ route('logout') }}"
+                                  
+                                <a class="dropdown-item" href="{{ route ('perfil',['slug'=> Auth::user()->slug ])}}">{{__('Perfil')}}</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
                                   onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
                                   {{ __('Cerrar Sesion') }}
                                 </a>
-                                <a class="nav-link" href="{{ route ('perfil',['slug'=> Auth::user()->slug ])}}">{{__('Perfil')}}</a>
                                 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf

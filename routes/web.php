@@ -43,7 +43,7 @@ Route::get('/mini/{filename}', array(
 ));
 
 
-Route::get('/video/{id}', array(
+Route::get('/video/{slug}', array(
     'as' => 'detalleVideo',
     'uses' => 'VideoController@getVideoPage'
 ));
@@ -73,7 +73,7 @@ Route::get('/delete-video/{video_id}', array(
     'uses' => 'VideoController@deletes'
 ));
 
-Route::get('/editar-video/{video_id}', array(
+Route::get('/editar-video/{slug}', array(
     'as' => 'videoEdit',
     'middleware' => 'auth',
     'uses' => 'VideoController@edit'

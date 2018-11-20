@@ -24,7 +24,7 @@
                 <!-- Category -->
               
                 <!-- Post title -->
-                <h4 class="font-weight-bold mb-3"><strong><a class="video-title" href="{{ route('detalleVideo',['slug' => $video->slug])}}">{{$video->title}}</a></strong></h4>
+                <h4 class="font-weight-bold mb-3"><strong><a class="video-title" href="{{ route('detalleVideo',['id' => $video->id])}}">{{$video->title}}</a></strong></h4>
 
 
                 <!-- Excerpt -->
@@ -40,7 +40,7 @@
                     <a href="{{ route('detalleVideo',['id' => $video->id])}}" class="btn btn-success btn-md">Ver</a>
                     @if (Auth::check() && Auth::user()->id == $video->user->id)
 
-                    <a href="{{ route('videoEdit',['id' => $video->id])}}" class="btn btn-warning btn-md">Editar</a>
+                    <a href="{{ route('videoEdit',['slug' => $video->slug])}}" class="btn btn-warning btn-md">Editar</a>
 
                     <!-- Botón en HTML (lanza el modal en Bootstrap) -->
                     <a href="#video{{$video->id}}" role="button" class="btn btn-danger btn-md" data-toggle="modal">Eliminar

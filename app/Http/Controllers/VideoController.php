@@ -78,7 +78,7 @@ class VideoController extends Controller
         $video = Video::where( 'id','=',$video_id)->firstOrFail();
         $likeVideo = Video::find($video_id);
         $contador = Likes::where(['video_id' => $likeVideo->id])->count();
-        // dd($likeVideo);
+
     
        return view('video.detalle', array(
             'video' => $video,
@@ -105,15 +105,15 @@ class VideoController extends Controller
             Toastr::warning( 'Video Eliminado correctament');
           
         } else {
-            Toastr::warning( 'Video no ha podido eliminarse correctamentet');
+            Toastr::warning( 'Video no ha podido eliminarse correctamente');
             
         }
         return redirect()->route('home');
     }
-    public function edit($video_id)
+    public function edit($slug)
     {
         $user = \Auth::user(); \Auth::user();
-        $video = Video::where('id','=', $video_id)->firstOrFail();
+        $video = Video::where('slug','=', $slug)->firstOrFail();
         if ($user && $video->user_id == $user->id) {          
            
         } else {
@@ -170,10 +170,9 @@ class VideoController extends Controller
         }
 
         $video->update();
-
+        Toastr::info( 'El video se ha actualizado correctamente');  
         return redirect()->route('/canal/{slug}');
-        Toastr::info( 'El video se ha actualizado correctamente');
-       
+  
     
     }
 
@@ -195,14 +194,14 @@ class VideoController extends Controller
         ));
     }
 
-    public function view($video_id){
-        $videos = Video::where('id', '=', $video_id)->get();
-        $likeVideo = Video::find($video_id);
-        $contador = Like::where(['video_id' -> $likeVideo->id])->count();
-        $categories = Category::all();
-        return view('videos.view', ['videos' ->$videos, 'categories' ->$categories,'contador' =>$contador]);
+    // public function view($video_id){
+    //     $videos = Video::where('id', '=', $video_id)->get();
+    //     $likeVideo = Video::find($video_id);
+    //     $contador = Like::where(['video_id' -> $likeVideo->id])->count();
+    //     $categories = Category::all();
+    //     return view('videos.view', ['videos' ->$videos, 'categories' ->$categories,'contador' =>$contador]);
 
-    }
+    // }
 
     public function like($id){
         $loggedin_user =\Auth::user();

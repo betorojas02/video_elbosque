@@ -19,14 +19,14 @@ class UserController extends Controller
 {
     //
     public function channel($slug){
-       // dd($video);   
+         
         $user = User::where('slug','=', $slug)->first();
         if(!is_object($user)){
             return redirect()->route('home');
         }
 
         $video = Video::Where('user_id','=',$user->id)->paginate(5);
-              
+        //dd($video);
         return view('user.channel',array(
             'user' => $user,
             'videos'=> $video
