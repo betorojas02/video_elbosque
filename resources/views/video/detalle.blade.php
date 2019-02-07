@@ -2,6 +2,8 @@
 
 @section('content')
 <link href="{{ asset('css/cardvideo.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="container">
     
 
@@ -22,6 +24,11 @@
                                 <!-- description-->
                            
 
+                              
+                                 <a href='{{ url("/like/{$video->id}")}}' type="button" class="btn btn-default">like <i class="fa fa-heart"> </i></a>
+                                 <div class="btn btn-default" > {{$contador}}</div>
+
+                
                               <div class="card text-white bg-success mb-3" >
                                     <div class="card-header">Subido por <strong>{{$video->user->name. " " . $video->user->surname}}</strong> {{\FormatTime::LongTimeFilter($video->created_at)}}</div>
                                     <div class="card-body">
@@ -39,5 +46,9 @@
                 
             </div>   
         </div>
+
     </div>
+
+     
+    
 @endsection

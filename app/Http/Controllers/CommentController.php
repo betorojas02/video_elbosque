@@ -21,8 +21,8 @@ class CommentController extends Controller
         $comment->video_id = $request->input('video_id');
         $comment->body = $request->input('body');
         $comment->save();
-        Toastr::success('Comentario añadido Correctamente');
-        return redirect()->route('detalleVideo', ['slug' => $comment->video->slug]);
+        Toastr::success('Comentario añadido correctamente');
+        return redirect()->route('detalleVideo', ['slug' => $comment->video->id]);
        
     }
 
@@ -34,7 +34,7 @@ class CommentController extends Controller
             $comment->delete();
 
         }
-        Toastr::warning('Comentario Eliminado Correctamente');
-        return redirect()->route('detalleVideo', ['slug' => $comment->video->slug]);
+        Toastr::warning('Comentario eliminado correctamente');
+        return redirect()->route('detalleVideo', ['slug' => $comment->video->id]);
     }
 }

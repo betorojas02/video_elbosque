@@ -8,6 +8,10 @@ background-color: #7BC142;
 */
 
 
+#tamaoimg{
+    width: 1000px;
+    height: 200px;
+}
 .video-image-mask{
     width: 200px;
     height: 150px;

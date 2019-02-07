@@ -25,6 +25,10 @@ class Video extends Model
     }
 
    
+    public function likes()
+    {
+        return $this->hasMany('App\Likes');
+    }
     
     /**
     * Este es el método el cual nos indica el trait y esperamos devolver 

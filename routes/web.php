@@ -98,3 +98,27 @@ Route::get('/canal/{slug}',array(
         'as' => 'channel',
         'uses' => 'UserController@channel'
 ));
+
+
+Route::get('/canal-u/{slug}',array(
+    'as' => 'perfil',
+    'uses' => 'UserController@perfil'
+));
+
+//editar perfil 
+
+Route::get('/editar-Perfil/{slug}', array(
+    'as' => 'editarPerfil',
+    'uses' => 'UserController@editarPerfil'
+));
+
+Route::post('/update-perfil/{slug}', array(
+    'as' => 'perfilUpdate',
+    'middleware' => 'auth',
+    'uses' => 'UserController@updatePerfil'
+));
+
+//LIKES
+
+
+Route::get('/like/{id}','VideoController@like');
