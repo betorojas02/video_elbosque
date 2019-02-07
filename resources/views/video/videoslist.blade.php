@@ -32,6 +32,7 @@
                 <p>{{$video->description}}</p>
                 <!-- Post data -->
                 <p>Por : <a href="{{route('channel',['slug'=>$video->user->slug])}}">{{$video->user->name." ". $video->user->surname}}</strong></a></p>
+           
                 <!-- Read more button -->
 
 

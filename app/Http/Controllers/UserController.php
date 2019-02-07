@@ -20,9 +20,11 @@ class UserController extends Controller
     //
     public function channel($slug){
         $user = User::where('slug','=', $slug)->first();
+        
         if(!is_object($user)){
             return redirect()->route('home');
         }
+     
 
         $video = Video::Where('user_id','=',$user->id)->paginate(5);
              // dd($video);   
@@ -30,5 +32,8 @@ class UserController extends Controller
             'user' => $user,
             "videos"=> $video
         ));
+
+      
+    
     }
 }
